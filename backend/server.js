@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-  origin: 'https://quiz-quj4.onrender.com',
+  origin: 'https://quiz-1-m082.onrender.com',
 }));
 app.use(express.json());
 

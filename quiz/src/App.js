@@ -145,10 +145,10 @@ const QuizApp = () => {
         >
           <div className="flex justify-between items-center">
             <span>{option}</span>
-            {option === currentQuestionData.correctAnswer && (
+            {showExplanation && option === currentQuestionData.correctAnswer && (
               <CheckCircle2 className="h-6 w-6 text-green-500" />
             )}
-            { option === selectedAnswer && option !== currentQuestionData.correctAnswer && (
+            { showExplanation && option === selectedAnswer && option !== currentQuestionData.correctAnswer && (
               <XCircle className="h-6 w-6 text-red-500" />
             )}
           </div>

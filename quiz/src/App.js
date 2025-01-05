@@ -1,165 +1,4 @@
 
-// import React, { useState, useEffect } from 'react';
-// import { Card, CardContent, CardHeader, CardTitle } from '../src/components/card/card.js';
-// import { Button } from '../src/components/button/button';
-// import { ChevronLeft, ChevronRight, HelpCircle } from 'lucide-react';
-// import axios from 'axios';
-
-
-// const QuizApp = () => {
-//   const [currentQuestion, setCurrentQuestion] = useState(0);
-//   const [showExplanation, setShowExplanation] = useState(false);
-//   const [selectedAnswer, setSelectedAnswer] = useState(null);
-//   const [questions, setQuestions] = useState([]);
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     fetchQuestions();
-//   }, []);
-
-//   const fetchQuestions = async () => {
-//     try {
-//       const response = await axios.get('http://localhost:3001/api/questions');
-//       const data = await response.data;
-//       console.log(data, response,'resssssssssssssssssssssssssss')
-//       setQuestions(data);
-//       setLoading(false);
-//     } catch (error) {
-//       console.error('Error fetching questions:', error);
-//       setLoading(false);
-//     }
-//   };
-
-//   const handleAnswerSelect = (answer) => {
-//     setSelectedAnswer(answer);
-//   };
-
-//   const handleNextQuestion = () => {
-//     if (currentQuestion < questions.length - 1) {
-//       setCurrentQuestion(currentQuestion + 1);
-//       setSelectedAnswer(null);
-//       setShowExplanation(false);
-//     }
-//   };
-
-//   const handlePrevQuestion = () => {
-//     if (currentQuestion > 0) {
-//       setCurrentQuestion(currentQuestion - 1);
-//       setSelectedAnswer(null);
-//       setShowExplanation(false);
-//     }
-//   };
-
-//   if (loading) {
-//     return <div className="flex justify-center items-center h-screen">Loading...</div>;
-//   }
-
-//   const currentQuestionData = questions[currentQuestion];
-//   const isCorrect = selectedAnswer === currentQuestionData?.correctAnswer;
-
-//   return (
-//     <div className="min-h-screen bg-blue-500 p-8">
-//       <div className="max-w-4xl mx-auto">
-//         <Card className="mb-4">
-//           <CardHeader>
-//             <CardTitle className="text-center text-2xl text-red-500">
-//               Quiz Application UI
-//             </CardTitle>
-//           </CardHeader>
-//         </Card>
-
-//         <Card>
-//           <CardHeader>
-//             <CardTitle>Quiz Title</CardTitle>
-//           </CardHeader>
-//           <CardContent>
-//             <div className="space-y-6">
-//               <div className="flex justify-between items-center">
-//                 <div className="text-lg">Question {currentQuestion + 1}/5</div>
-//                 <Button variant="ghost">
-//                   <HelpCircle className="h-5 w-5" />
-//                   Need Help?
-//                 </Button>
-//               </div>
-
-//               <div className="border rounded-lg p-4 bg-blue-50">
-//                 <p className="text-lg">{currentQuestionData?.question}</p>
-//               </div>
-
-//               <div className="space-y-3">
-//                 {currentQuestionData?.options.map((option, index) => (
-//                   <div
-//                     key={index}
-//                     onClick={() => handleAnswerSelect(option)}
-//                     className={`p-4 rounded-lg shadow cursor-pointer transition-colors
-//                       ${selectedAnswer === option && !showExplanation ? 'bg-blue-500 text-white' : 'bg-white'}
-//                       ${showExplanation && selectedAnswer === option
-//                         ? isCorrect
-//                           ? 'bg-green-500 text-white'
-//                           : 'bg-red-500 text-white'
-//                         : ''
-//                       }`}
-//                   >
-//                     {option}
-//                   </div>
-//                 ))}
-//               </div>
-
-//               <div className="flex justify-between items-center">
-//                 <Button
-//                   onClick={handlePrevQuestion}
-//                   disabled={currentQuestion === 0}
-//                   variant="outline"
-//                 >
-//                   <ChevronLeft className="h-4 w-4 mr-2" />
-//                   Prev
-//                 </Button>
-//                 <Button
-//                   onClick={() => setShowExplanation(!showExplanation)}
-//                   variant="outline"
-//                 >
-//                   Explanation
-//                 </Button>
-//                 <Button
-//                   onClick={handleNextQuestion}
-//                   disabled={currentQuestion === questions.length - 1}
-//                   variant="outline"
-//                 >
-//                   Next
-//                   <ChevronRight className="h-4 w-4 ml-2" />
-//                 </Button>
-//               </div>
-
-//               {showExplanation && (
-//                 <div className="border rounded-lg p-4 mt-4 bg-gray-50">
-//                   <h3 className="font-semibold mb-2">Explanation</h3>
-//                   <p>{currentQuestionData?.explanation}</p>
-//                 </div>
-//               )}
-//             </div>
-//           </CardContent>
-//         </Card>
-
-//         <div className="flex flex-wrap gap-2 justify-center mt-4">
-//           {Array.from({ length: 20 }, (_, i) => (
-//             <div
-//               key={i}
-//               className={`w-8 h-8 rounded-full flex items-center justify-center
-//                 ${i === currentQuestion ? 'bg-blue-200' : 'bg-gray-200'}
-//                 ${i === 10 ? 'bg-red-200' : ''}
-//                 ${i >= 11 && i <= 19 ? 'bg-gray-400' : ''}`}
-//             >
-//               {i + 1}
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default QuizApp;
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../src/components/card/card.js';
 import { Button } from '../src/components/button/button';
@@ -188,7 +27,7 @@ const QuizApp = () => {
 
   const fetchAvailableTests = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/tests');
+      const response = await axios.get('https://quiz-quj4.onrender.com/api/tests');
       setAvailableTests(response.data);
     } catch (error) {
       console.error('Error fetching tests:', error);
@@ -198,7 +37,7 @@ const QuizApp = () => {
   const fetchQuestions = async (testId) => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:3001/api/tests/${testId}`);
+      const response = await axios.get(`https://quiz-quj4.onrender.com/api/tests/${testId}`);
       setQuestions(response.data);
       setCurrentQuestion(0);
       setSelectedAnswer(null);

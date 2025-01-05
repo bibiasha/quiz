@@ -65,7 +65,7 @@ function generateQuestions(testId) {
       correctAnswer: `${testId}`,
       explanation: `The atomic number of an element is its position in the periodic table.`
     },
-    // Add more questions following similar pattern
+  
   ];
 }
 

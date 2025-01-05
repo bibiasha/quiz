@@ -1,6 +1,6 @@
 
 import React from "react";
-import { cn } from "../../lib/utils"; // Ensure the correct path to the utility function
+import { cn } from "../../lib/utils"; 
 
 // Card Component
 const Card = React.forwardRef(({ className, ...props }, ref) => (

@@ -65,7 +65,30 @@ function generateQuestions(testId) {
       correctAnswer: `${testId}`,
       explanation: `The atomic number of an element is its position in the periodic table.`
     },
-  
+    {
+      testId,
+      questionId: 3,
+      question: `History Question ${testId}.3: In which year did event ${1900 + testId} occur?`,
+      options: [`${1900 + testId}`, `${1901 + testId}`, `${1899 + testId}`, `${1902 + testId}`],
+      correctAnswer: `${1900 + testId}`,
+      explanation: `The event ${1900 + testId} is recorded in history books as occurring in the year ${1900 + testId}.`
+    },
+    {
+      testId,
+      questionId: 4,
+      question: `Geography Question ${testId}.4: What is the approximate latitude of city ${testId * 10}°N?`,
+      options: [`${testId * 10}°N`, `${testId * 10 + 5}°N`, `${testId * 10 - 5}°N`, `${testId * 10 + 10}°N`],
+      correctAnswer: `${testId * 10}°N`,
+      explanation: `Latitude is expressed in degrees north or south. The city lies approximately at ${testId * 10}°N.`
+    },
+    {
+      testId,
+      questionId: 5,
+      question: `English Question ${testId}.5: Which word best completes the sentence: "The quick brown fox jumps over the ______ dog"?`,
+      options: ["lazy", "active", "sleepy", "energetic"],
+      correctAnswer: "lazy",
+      explanation: `The correct phrase is "The quick brown fox jumps over the lazy dog," which is a pangram.`
+    },
   ];
 }
 

@@ -155,8 +155,8 @@ const QuizApp = () => {
         </button>
       ))}
     </div>
-    <div className=''>
-    <h3  onClick={() => handleExplaination()} className="font-semibold mb-2">Explanation</h3>
+    <div className='border shadow-lg p-2 rounded-lg'>
+    <button  onClick={() => handleExplaination()} className="font-semibold mb-2">Explanation</button>
 
 {showExplanation && (
   <div className={`rounded-lg p-4 ${isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'} border`}>
